@@ -1,0 +1,106 @@
+2026-06-19 19:55:02,509 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-19 19:55:02,510 - agent - DEBUG - middleware.py:41 - [logger_before_model]HumanMessage | 生成我的心理健康情绪报告
+2026-06-19 19:55:04,796 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_user_id
+2026-06-19 19:55:04,796 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 19:55:04,798 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_user_id调用成功
+2026-06-19 19:55:04,852 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-19 19:55:04,853 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 1004
+2026-06-19 19:55:06,132 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_current_month
+2026-06-19 19:55:06,132 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 19:55:06,133 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_current_month调用成功
+2026-06-19 19:55:06,219 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-19 19:55:06,219 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 2026-06
+2026-06-19 19:55:08,660 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fill_context_for_report
+2026-06-19 19:55:08,660 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 19:55:08,662 - agent - INFO - middleware.py:24 - [monitor_tool]工具fill_context_for_report调用成功
+2026-06-19 19:55:08,962 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-19 19:55:08,963 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | fill_context_for_report 已调用
+2026-06-19 19:55:11,348 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fetch_external_data
+2026-06-19 19:55:11,348 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'month': '2026-06', 'user_id': '1004'}
+2026-06-19 19:55:11,349 - agent - WARNING - agent_tools.py:150 - [fetch_external_data] 未找到 1004 在 2026-06 的记录
+2026-06-19 19:55:11,350 - agent - INFO - middleware.py:24 - [monitor_tool]工具fetch_external_data调用成功
+2026-06-19 19:55:11,351 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有9条消息。
+2026-06-19 19:55:11,351 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 
+2026-06-19 19:55:24,216 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：rag_summarize
+2026-06-19 19:55:24,216 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'query': '情绪记录 心理觉察 益处'}
+2026-06-19 19:56:07,093 - agent - INFO - middleware.py:24 - [monitor_tool]工具rag_summarize调用成功
+2026-06-19 19:56:12,213 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有11条消息。
+2026-06-19 19:56:12,213 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 进行情绪记录与心理觉察，是为内心建立清晰与平静的重要方式。它的核心益处在于帮助你从混乱的思绪中抽离，更真实地理解自己。当我们被消极记忆或低落情绪困扰时，很容易陷入反复的担忧与反刍。通过如实记录当下的感受，你能将无形的压力转化为可见的文字，从而更容易看清情绪的触发点与自身真实的心理需求。这种觉察会让你逐渐意识到，那些令你痛苦的想法和情绪只是暂时存在于大脑中的心理活动，它们会随着时间与主动调节而变化，并非固定不变的事实。
+
+在实践中，建议以温和、不评判的态度进行书写，不必追求逻辑严密或辞藻修饰，只需如实记下当下的具体情境、内在感受以及身体的反应。当感到焦虑或思绪纷乱时，记录能为你提供一个安全的缓冲出口；配合深呼吸、冥想或接触轻柔的音乐，有助于快速恢复清晰的思维状态。持续的心理觉察并非为了强行消除所有负面情绪，而是让你在感到迷茫、空虚或无力时，能及时给予自己时间与空间去聆听内心的真实需要，接纳当下的局限，并逐步明确可以调整的具体方向。每一次真诚的记录，都是在积累应对日常挑战的心理韧性，帮助你在情绪波动中找回内在的平衡，并将困难转化为自我成长的契机。
+2026-06-19 20:02:38,733 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-19 20:02:38,735 - agent - DEBUG - middleware.py:41 - [logger_before_model]HumanMessage | 重新生成一个
+2026-06-19 20:03:33,540 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-19 20:03:33,541 - agent - DEBUG - middleware.py:41 - [logger_before_model]HumanMessage | 再次生成我的情绪健康报告
+2026-06-19 20:03:36,921 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_user_id
+2026-06-19 20:03:36,921 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:03:36,922 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_user_id调用成功
+2026-06-19 20:03:36,976 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-19 20:03:36,976 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 1003
+2026-06-19 20:03:39,748 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_current_month
+2026-06-19 20:03:39,748 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:03:39,748 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_current_month调用成功
+2026-06-19 20:03:39,834 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-19 20:03:39,835 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 2026-06
+2026-06-19 20:03:42,127 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fill_context_for_report
+2026-06-19 20:03:42,127 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:03:42,129 - agent - INFO - middleware.py:24 - [monitor_tool]工具fill_context_for_report调用成功
+2026-06-19 20:03:42,428 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-19 20:03:42,429 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | fill_context_for_report 已调用
+2026-06-19 20:03:45,148 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fetch_external_data
+2026-06-19 20:03:45,148 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'month': '2026-06', 'user_id': '1003'}
+2026-06-19 20:03:45,149 - agent - WARNING - agent_tools.py:150 - [fetch_external_data] 未找到 1003 在 2026-06 的记录
+2026-06-19 20:03:45,149 - agent - INFO - middleware.py:24 - [monitor_tool]工具fetch_external_data调用成功
+2026-06-19 20:03:45,150 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有9条消息。
+2026-06-19 20:03:45,150 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 
+2026-06-19 20:03:53,204 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：rag_summarize
+2026-06-19 20:03:53,204 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'query': '情绪记录习惯 心理觉察 自我关怀'}
+2026-06-19 20:04:37,726 - agent - INFO - middleware.py:24 - [monitor_tool]工具rag_summarize调用成功
+2026-06-19 20:04:42,580 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有11条消息。
+2026-06-19 20:04:42,580 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 关于情绪记录习惯：记录的核心在于客观观察而非自我评判。建议养成书写日记的习惯，如实记录当下的情绪波动与伴随的思维模式。将感受落于纸面能有效释放心理压力，通过持续追踪，你可以清晰识别情绪起伏的触发情境与规律，从而将模糊的失控感转化为具体、可应对的认知线索。
+
+关于心理觉察：情绪波动是正常的心理现象，无需苛责或急于对抗自己。觉察的练习在于允许与注视。当焦虑或压力涌现时，可借助深呼吸、静坐冥想或渐进式肌肉放松，将注意力温和地锚定在当下呼吸或身体感受上。这种非评判的觉察能帮助你与情绪保持安全的心理距离，避免陷入灾难化想象，逐渐重建内在的平静与稳定。
+
+关于自我关怀：自我关怀始于接纳现状并启动微小行动。不必强求立刻获得快乐，可为自己设定极小的、易完成的目标，如每日散步、接触自然风景、聆听喜爱的音乐或进行轻度锻炼。这些积极的微小体验能有效激活内在动力。同时，允许自己向信任的亲友或专业人士敞开倾诉，建立支持性关系；停止过度自责，主动关注自身的优点与价值，以对待朋友般的温和态度陪伴自己逐步走出低潮。
+2026-06-19 20:05:45,973 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-19 20:05:45,973 - agent - DEBUG - middleware.py:41 - [logger_before_model]HumanMessage | 生成我的情绪健康报告
+2026-06-19 20:05:54,359 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_user_id
+2026-06-19 20:05:54,359 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：get_current_month
+2026-06-19 20:05:54,359 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:05:54,359 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:05:54,361 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_user_id调用成功
+2026-06-19 20:05:54,361 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fill_context_for_report
+2026-06-19 20:05:54,361 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{}
+2026-06-19 20:05:54,361 - agent - INFO - middleware.py:24 - [monitor_tool]工具get_current_month调用成功
+2026-06-19 20:05:54,364 - agent - INFO - middleware.py:24 - [monitor_tool]工具fill_context_for_report调用成功
+2026-06-19 20:05:54,663 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-19 20:05:54,664 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | fill_context_for_report 已调用
+2026-06-19 20:05:59,011 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：fetch_external_data
+2026-06-19 20:05:59,011 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'month': '2025-03', 'user_id': '1006'}
+2026-06-19 20:05:59,013 - agent - INFO - middleware.py:24 - [monitor_tool]工具fetch_external_data调用成功
+2026-06-19 20:06:00,533 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-19 20:06:00,533 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | [{'情绪评分': '5', '情绪标签': '希望,平静', '事件备注': '终于有几家公司约面试了有点期待', '睡眠时长': '7.0', '记录时间': '2025-03-12 09:30', '对话摘要': '用户迎来转机情绪有所回升共同准备面试心态和自我展示技巧'}]
+2026-06-19 20:06:15,835 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：rag_summarize
+2026-06-19 20:06:15,835 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'query': '求职压力管理与希望感'}
+2026-06-19 20:07:20,581 - agent - INFO - middleware.py:24 - [monitor_tool]工具rag_summarize调用成功
+2026-06-19 20:07:28,898 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有9条消息。
+2026-06-19 20:07:28,898 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 针对求职压力与希望感，从心理学干预视角提取以下核心知识点与可落地策略：
+
+认知重构：区分压力性质，接纳情绪波动。适度紧张能提升专注力与准备效率，但长期紧绷会引发身心疲惫。请将过度焦虑视为需要休息的生理信号，而非个人能力不足的证明。求职中的迷茫、自我否定或暂时退缩是常见心理反应，请将这些情绪认知为“阶段性过渡状态”而非“永久性定论”，避免因单次挫折陷入全局性绝望。同时，需警惕横向比较与完美主义倾向，完美并不存在，过度追求会持续消耗心理资源。将注意力从“与他人节奏对比”转向“肯定自身已有优势”，把求职过程视为能力匹配的双向探索，而非对个人价值的单一审判。
+
+情绪调节：运用身体锚定与节奏管理。当面临面试紧张或出现手心出汗、手脚冰凉等躯体化反应时，建议立即暂停思维反刍，通过缓慢深呼吸将注意力拉回当下，专注觉察身体的真实感受。这种生理层面的干预能帮助自主神经系统快速恢复平衡。此外，必须建立明确的心理缓冲带，严格执行劳逸结合，为自己划定清晰的休息边界。通过规律作息和投入喜爱的事物为情绪充电，这不是懈怠，而是维持长期求职韧性的必要策略。
+
+行动干预：聚焦可控环节，以微小进步重建希望。将庞大的求职目标拆解为具体、可执行的小步骤，例如提前调研企业背景、梳理个人实战经验、进行多轮模拟面试。充分的预案能显著降低未知带来的失控感。遇到未预料的问题或不如意的结果时，尝试将其重构为锻炼临场反应与积累经验的机会，无论单次结果如何，过程本身都在为后续突破蓄力。面对动力不足或懒散心态时，不必强求一蹴而就，设定切实可行的微小目标，坚持每天落实一点点改变。持续的行动积累会自然转化为内在的掌控感与自我效能感。若自我调节陷入瓶颈或感到孤立无援，主动向亲友倾诉、咨询职业顾问或寻求专业心理支持是打破内耗的有效途径，求助并非示弱，而是积极调动心理资源。
+2026-06-19 20:20:52,371 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-19 20:20:52,372 - agent - DEBUG - middleware.py:41 - [logger_before_model]HumanMessage | 我感觉现在很焦虑，感觉找不到工作，对自己的能力不太自信怎么办
+2026-06-19 20:21:01,635 - agent - INFO - middleware.py:19 - [monitor_tool]执行工具：rag_summarize
+2026-06-19 20:21:01,635 - agent - INFO - middleware.py:20 - [monitor_tool]传入参数：{'query': '求职焦虑 自我效能感 认知重构'}
+2026-06-19 20:21:45,427 - agent - INFO - middleware.py:24 - [monitor_tool]工具rag_summarize调用成功
+2026-06-19 20:21:53,150 - agent - INFO - middleware.py:39 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-19 20:21:53,150 - agent - DEBUG - middleware.py:41 - [logger_before_model]ToolMessage | 面对求职期的焦虑与自我怀疑，可从认知重构与自我效能重建两个维度进行科学干预。焦虑是面对不确定性与压力时的正常情绪反应，当其伴随“必须完美”或“害怕失败”的念头时，往往源于完美主义倾向与过度自我要求。基于现有心理干预资料，可尝试以下落地策略：
+
+在认知重构层面，需打破结果导向与横向比较的思维滤镜。求职中的挫折不宜直接内化为能力缺陷，因为实际表现受环境、资源、时机等多重因素影响，并非个人能完全掌控。将评价标准从“必须一次成功/超越他人”转移至“过程中的努力与经验积累”，允许失败作为调整方向的反馈而非对自我价值的否定。同时，停止用单一标尺与他人比较，客观接纳自身优势与待提升之处，理解职业方向的探索本就需要在不同尝试中逐步清晰。
+
+在自我效能感提升层面，建议通过微行动建立正向循环。长期焦虑易消耗心理能量并引发拖延，可通过任务拆解降低心理门槛，将求职准备划分为具体、可执行的小步骤（如每日精修一项技能、投递三份简历、进行一次模拟问答），每完成一段即给予短暂休息与自我肯定。配合温和的自我暗示（如“我已尽力，我有能力逐步改善”），将外在的认可与鼓励逐步内化为稳定的内在自信。过往克服困难的经历也可作为能力证明，反复唤醒以对抗当下的怯场与自我怀疑。
+
+在情绪与精力调节层面，保持规律的作息与营养摄入是维持心理韧性的基础。合理划分求职、休息与兴趣活动的时间，避免单一事件占据全部心理带宽。当自我调节感到吃力或陷入疲惫循环时，主动与信任的人交流、分享感受或寻求专业支持是积极且有效的应对方式。请相信，焦虑并非终点，而是提示你需要调整节奏、重新聚焦的信号。专注当下可掌控的微小行动，保持对自我的包容，你会逐步找回对职业发展的掌控感。

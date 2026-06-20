@@ -1,0 +1,114 @@
+2026-06-18 14:09:00,560 - agent - ERROR - file_handler.py:13 - [md5计算]文件txt不存在
+2026-06-18 14:09:00,561 - agent - WARNING - vector_store.py:72 - [加载知识库]txt内没有有效文本内容，跳过
+2026-06-18 14:09:00,561 - agent - ERROR - file_handler.py:13 - [md5计算]文件pdf不存在
+2026-06-18 14:09:00,561 - agent - ERROR - vector_store.py:87 - [加载知识库]pdf加载失败：File path pdf is not a valid file or url
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 69, in load_document
+    documents: list[Document] = get_file_document(path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 54, in get_file_document
+    return pdf_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\utils\file_handler.py", line 47, in pdf_loader
+    return PyPDFLoader(filepath,password).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 281, in __init__
+    super().__init__(file_path, headers=headers)
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 140, in __init__
+    raise ValueError("File path %s is not a valid file or url" % self.file_path)
+ValueError: File path pdf is not a valid file or url
+2026-06-18 14:11:51,703 - agent - ERROR - file_handler.py:13 - [md5计算]文件txt不存在
+2026-06-18 14:11:51,703 - agent - ERROR - vector_store.py:87 - [加载知识库]txt加载失败：Error loading txt
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 42, in lazy_load
+    with open(self.file_path, encoding=self.encoding) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'txt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 69, in load_document
+    documents: list[Document] = get_file_document(path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 51, in get_file_document
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\utils\file_handler.py", line 51, in txt_loader
+    return TextLoader(filepath,encoding="utf-8").load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 58, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading txt
+2026-06-18 14:11:51,704 - agent - ERROR - file_handler.py:13 - [md5计算]文件pdf不存在
+2026-06-18 14:11:51,704 - agent - ERROR - vector_store.py:87 - [加载知识库]pdf加载失败：File path pdf is not a valid file or url
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 69, in load_document
+    documents: list[Document] = get_file_document(path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 54, in get_file_document
+    return pdf_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\utils\file_handler.py", line 47, in pdf_loader
+    return PyPDFLoader(filepath,password).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 281, in __init__
+    super().__init__(file_path, headers=headers)
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 140, in __init__
+    raise ValueError("File path %s is not a valid file or url" % self.file_path)
+ValueError: File path pdf is not a valid file or url
+2026-06-18 14:15:46,418 - agent - ERROR - file_handler.py:13 - [md5计算]文件txt不存在
+2026-06-18 14:15:46,418 - agent - WARNING - vector_store.py:72 - [加载知识库]txt内没有有效文本内容，跳过
+2026-06-18 14:15:46,418 - agent - ERROR - file_handler.py:13 - [md5计算]文件pdf不存在
+2026-06-18 14:15:46,418 - agent - WARNING - vector_store.py:72 - [加载知识库]pdf内没有有效文本内容，跳过
+2026-06-18 14:17:28,232 - agent - ERROR - file_handler.py:13 - [md5计算]文件.txt不存在
+2026-06-18 14:17:28,232 - agent - ERROR - vector_store.py:88 - [加载知识库].txt加载失败：Error loading .txt
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 42, in lazy_load
+    with open(self.file_path, encoding=self.encoding) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '.txt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 70, in load_document
+    documents: list[Document] = get_file_document(path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 51, in get_file_document
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\utils\file_handler.py", line 51, in txt_loader
+    return TextLoader(filepath,encoding="utf-8").load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 58, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading .txt
+2026-06-18 14:17:28,233 - agent - ERROR - file_handler.py:13 - [md5计算]文件.pdf不存在
+2026-06-18 14:17:28,233 - agent - ERROR - vector_store.py:88 - [加载知识库].pdf加载失败：File path .pdf is not a valid file or url
+Traceback (most recent call last):
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 70, in load_document
+    documents: list[Document] = get_file_document(path)
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\rag\vector_store.py", line 54, in get_file_document
+    return pdf_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\utils\file_handler.py", line 47, in pdf_loader
+    return PyPDFLoader(filepath,password).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 281, in __init__
+    super().__init__(file_path, headers=headers)
+  File "D:\Mental Health Emotional Support Assistant\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 140, in __init__
+    raise ValueError("File path %s is not a valid file or url" % self.file_path)
+ValueError: File path .pdf is not a valid file or url
+2026-06-18 14:19:08,258 - agent - ERROR - file_handler.py:13 - [md5计算]文件txt不存在
+2026-06-18 14:19:08,258 - agent - WARNING - vector_store.py:73 - [加载知识库]txt内没有有效文本内容，跳过
+2026-06-18 14:19:08,258 - agent - ERROR - file_handler.py:13 - [md5计算]文件pdf不存在
+2026-06-18 14:19:08,258 - agent - WARNING - vector_store.py:73 - [加载知识库]pdf内没有有效文本内容，跳过
+2026-06-18 14:24:10,087 - agent - INFO - vector_store.py:85 - [加载知识库]D:\Mental Health Emotional Support Assistant\data\emotional_support.txt内容加载成功

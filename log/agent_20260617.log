@@ -1,0 +1,5 @@
+2026-06-17 13:47:34,120 - agent - INFO - logger_handler.py:43 - 信息日志
+2026-06-17 13:47:34,120 - agent - ERROR - logger_handler.py:44 - 错误日志
+2026-06-17 13:47:34,121 - agent - WARNING - logger_handler.py:45 - 警告日志
+2026-06-17 13:47:34,121 - agent - DEBUG - logger_handler.py:46 - 调试日志
+2026-06-17 19:18:15,729 - agent - ERROR - prompt_loader.py:16 - [load_system_prompts]解析系统提示词出错，[Errno 2] No such file or directory: 'D:\\Mental Health Emotional Support Assistant\\prompts/main_prompt.txt'
