@@ -59,7 +59,7 @@ class VectorStoreService:
             get_abs_path(chroma_conf['data_path']),
             tuple(chroma_conf["allowed_knowledge_file_type"]),
         )
-        print(allowed_file_path)
+
         for path in allowed_file_path:
             md5_hex = get_file_md5_hex(path)
 

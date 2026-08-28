@@ -16,10 +16,11 @@ class BaseModelFactory(ABC):
 
 class ChatModelFactory(BaseModelFactory):
     def generator(self) -> Optional[BaseChatModel | Embeddings]:
-        return init_chat_model(model=rag_conf['chat_model_name'],
-                               model_provider="openai",
-                               base_url=os.getenv("DASHSCOPE_BASE_URL"),
-                               api_key=os.getenv("DASHSCOPE_API_KEY"), )
+        # return init_chat_model(model=rag_conf['chat_model_name'],
+        #                        model_provider="openai",
+        #                        base_url=os.getenv("DASHSCOPE_BASE_URL"),
+        #                        api_key=os.getenv("DASHSCOPE_API_KEY"), )
+        return init_chat_model(model=rag_conf['chat_model_name'])
 
 class EmbeddingsFactory(BaseModelFactory):
     def generator(self) -> Optional[Embeddings | BaseChatModel]:

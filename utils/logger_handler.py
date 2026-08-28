@@ -1,10 +1,12 @@
 from datetime import datetime
 import logging
 import os
+from contextlib import contextmanager
+import time
 
 from utils.path_tool import get_abs_path
 
-LOG_ROOT = get_abs_path("log")
+LOG_ROOT = get_abs_path("logs")
 os.makedirs(LOG_ROOT, exist_ok=True)
 DEFAULT_LOG_FORMAT = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
@@ -36,6 +38,22 @@ def get_logger(
 
     logger.addHandler(file_handler)
     return logger
+
+@contextmanager
+def log_execution_time(name):
+    start = time.time()
+    
+    logger.info(f"{name}开始")
+
+    try:
+        yield
+
+    finally:
+
+        end = time.time()
+        logger.info(
+            f"{name}完成，耗时{end-start:.2f}s"
+        )
 
 logger = get_logger()
 

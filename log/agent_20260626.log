@@ -1,0 +1,37 @@
+2026-06-26 15:00:42,042 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-26 15:00:42,042 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 感觉最近很焦虑，我该怎么办
+2026-06-26 15:00:54,032 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：rag_summarize
+2026-06-26 15:00:54,032 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'query': '焦虑情绪管理与心理调适方法'}
+2026-06-26 15:01:43,117 - agent - INFO - middleware.py:21 - [monitor_tool]工具rag_summarize调用成功
+2026-06-26 15:01:50,992 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-26 15:01:50,992 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 面对焦虑情绪与心理调适的需求，以下基于心理学实践的策略可供参考：
+
+在认知层面，情绪的自然起伏是常态，无需因一时的失控感或低落状态而否定自我价值。当感到周围环境带来压迫或产生被他人注视的紧张感时，可尝试区分主观感受与客观事实。这类体验往往是内在压力的心理投射，而非必然的现实。通过与信任的亲友坦诚交流，听取外部视角，有助于进行现实检验，打破孤立感与过度思虑。同时，接纳情绪暂存“乱序”的状态，不急于强行压制或立刻理清，允许自己拥有消化与调整的时间与空间。
+
+在实操调节方面，书写记录是梳理思绪的有效途径。将当下的情绪、触发情境与内在想法如实记录下来，能帮助你厘清脉络，并逐步寻找对应的解决方向。当身体感到紧绷、透不过气或伴随恐慌时，可立即暂停手头事务，变换姿势或起身走动，配合“缓慢吸气默数至三，再徐徐呼气”的呼吸练习，有意识地放松肌肉紧张度，以打断焦虑的生理循环。日常可借助冥想、瑜伽或舒缓音乐进行放松训练，将注意力温和地锚定在当下。此外，尝试投入阅读、绘画、散步等个人兴趣，或通过完成如学习新菜谱、尝试一项轻运动等微小目标，逐步重建对生活的掌控感与自信心。
+
+在长期调适上，身心平衡是情绪稳定的基础。保持规律作息、充足睡眠、均衡饮食与适度活动，能为心理韧性提供稳定的生理支持。遇到难以独自承载的情绪重压时，请允许自己向外寻求支持，倾诉本身即是压力的安全释放阀，不要将负面情绪长期积压。
+
+若焦虑、情绪低落或身体不适持续数周乃至数月，且已明显干扰日常工作与生活节奏，建议及时联系专业心理咨询师或医疗机构进行评估与干预。主动求助是科学管理心理健康的重要一步。情绪的调适是一场循序渐进的练习，你已具备觉察与改变的力量，只需给予自己足够的耐心与持续的自我关怀。
+2026-06-26 15:02:20,320 - agent - INFO - agent_tools.py:97 - [_write_mood_row] 用户 1001 情绪记录已写入 CSV
+2026-06-26 15:02:42,122 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-26 15:02:42,122 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 生成我的健康报告
+2026-06-26 15:02:45,682 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_user_id
+2026-06-26 15:02:45,682 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-26 15:02:45,683 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_current_month
+2026-06-26 15:02:45,683 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-26 15:02:45,683 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_user_id调用成功
+2026-06-26 15:02:45,684 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_current_month调用成功
+2026-06-26 15:02:45,773 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有4条消息。
+2026-06-26 15:02:45,773 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 2025-09
+2026-06-26 15:02:48,111 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：fill_context_for_report
+2026-06-26 15:02:48,111 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-26 15:02:48,112 - agent - INFO - middleware.py:21 - [monitor_tool]工具fill_context_for_report调用成功
+2026-06-26 15:02:48,411 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有6条消息。
+2026-06-26 15:02:48,412 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | fill_context_for_report 已调用
+2026-06-26 15:02:50,554 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：fetch_external_data
+2026-06-26 15:02:50,554 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'user_id': '1002', 'month': '2025-09'}
+2026-06-26 15:02:50,555 - agent - WARNING - agent_tools.py:153 - [fetch_external_data] 未找到 1002 在 2025-09 的记录
+2026-06-26 15:02:50,555 - agent - INFO - middleware.py:21 - [monitor_tool]工具fetch_external_data调用成功
+2026-06-26 15:02:50,557 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有8条消息。
+2026-06-26 15:02:50,557 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 

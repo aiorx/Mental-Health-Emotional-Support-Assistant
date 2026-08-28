@@ -1,0 +1,20 @@
+2026-06-30 22:04:34,296 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有9条消息。
+2026-06-30 22:04:34,297 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你还知道我是谁吗
+2026-06-30 22:08:03,677 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有10条消息。
+2026-06-30 22:08:03,677 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你还知道我是谁吗
+2026-06-30 22:11:28,523 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有11条消息。
+2026-06-30 22:11:28,523 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你还记得我是谁吗
+2026-06-30 22:13:59,650 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有12条消息。
+2026-06-30 22:13:59,651 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你还记得我是谁吗
+2026-06-30 22:16:20,769 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有13条消息。
+2026-06-30 22:16:20,769 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你还知道我是谁吗
+2026-06-30 22:24:13,844 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有15条消息。
+2026-06-30 22:24:13,844 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你能怎么帮助我
+2026-06-30 22:27:42,057 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有17条消息。
+2026-06-30 22:27:42,057 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你能怎么帮助我
+2026-06-30 22:28:07,828 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有19条消息。
+2026-06-30 22:28:07,828 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 我今天不太好
+2026-06-30 22:29:15,384 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有21条消息。
+2026-06-30 22:29:15,384 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 好的
+2026-06-30 22:31:11,722 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有23条消息。
+2026-06-30 22:31:11,723 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 希望你能一直帮助我

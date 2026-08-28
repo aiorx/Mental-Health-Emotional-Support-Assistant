@@ -4,13 +4,15 @@ import os
 import random
 import re
 from datetime import datetime
-
+from dotenv import load_dotenv
 from langchain_core.tools import tool
-
+from langchain_tavily import TavilySearch
+from langgraph.runtime import get_runtime
 from rag.rag_service import RagSummarizeService
 from utils.config_handler import agent_conf
 from utils.logger_handler import logger
 from utils.path_tool import get_abs_path
+load_dotenv()
 
 # ── 内存缓存（避免重复读取 CSV） ──────────────────────────────────────────────
 _mood_cache: dict = {}
@@ -109,21 +111,28 @@ def _write_mood_row(user_id: str, mood_score: int, mood_tags: str,
 def rag_summarize(query: str) -> str:
     return rag.rag_summarize(query)
 
-
+tavily = TavilySearch(
+    max_results=5,
+    topic="general"
+)
 @tool(description=(
     "获取指定城市的当前天气，用于分析天气对情绪的潜在影响。"
     "入参 city 为城市名称字符串；返回包含温度、湿度、AQI 等信息的字符串。"
 ))
 def get_weather(city: str) -> str:
     # TODO: 替换为真实天气 API（如 OpenWeatherMap）
-    return (
-        f"城市 {city} 天气：晴，气温 26°C，湿度 50%，"
-        f"南风 1 级，AQI 21（优），最近 6 小时降雨概率极低"
-    )
+    return tavily.invoke(f"{city}当前的天气，返回包括温度、湿度、AQI等信息")
 
 
 @tool(description="获取用户所在城市名称，用于查询当地天气，以纯字符串形式返回。")
 def get_user_location() -> str:
+    # 优先读运行期注入的上下文；否则回退随机（兼容无 context 的调用场景）
+    try:
+        ctx = get_runtime().context
+        if ctx and getattr(ctx, "city", None):
+            return ctx.city
+    except Exception:
+        pass
     return random.choice(["深圳", "合肥", "杭州", "北京", "成都"])
 
 
@@ -132,11 +141,25 @@ def get_user_location() -> str:
     "在需要查询或保存用户专属记录前调用。"
 ))
 def get_user_id() -> str:
+    # 优先读运行期注入的上下文（前端已选定用户）；否则回退随机
+    try:
+        ctx = get_runtime().context
+        if ctx and getattr(ctx, "user_id", None):
+            return str(ctx.user_id)
+    except Exception:
+        pass
     return random.choice(user_ids)
 
 
 @tool(description="获取当前月份，格式固定为 YYYY-MM，以纯字符串形式返回。")
 def get_current_month() -> str:
+    # 优先读运行期上下文；否则回退随机（原逻辑）
+    try:
+        ctx = get_runtime().context
+        if ctx and getattr(ctx, "month", None):
+            return str(ctx.month)
+    except Exception:
+        pass
     return random.choice(month_arr)
     # return datetime.now().strftime("%Y-%m")
 
@@ -185,15 +208,6 @@ def log_mood(
     except Exception as e:
         logger.error(f"[log_mood] 写入失败：{e}")
         return f"❌ 记录失败：{str(e)}"
-
-
-@tool(description=(
-    "无入参，无返回值。"
-    "调用后触发中间件为报告生成场景注入上下文，驱动后续 Prompt 切换为报告模式。"
-    "生成月度情绪报告前必须首先调用此工具。"
-))
-def fill_context_for_report():
-    return "fill_context_for_report 已调用"
 
 
 # ─────────────────────────────────────────────────────────────────────────────

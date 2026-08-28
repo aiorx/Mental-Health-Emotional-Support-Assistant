@@ -1,2 +1,3 @@
-chat_model_name: qwen3.6-plus
+#chat_model_name: qwen3.6-max
+chat_model_name: deepseek-chat
 embedding_model_name: text-embedding-v4

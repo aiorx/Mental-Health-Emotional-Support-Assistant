@@ -1,0 +1,102 @@
+2026-06-29 15:39:39,700 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 15:39:39,701 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 可以查询我现在当前地区的天气吗，感觉对情绪有一定的影响
+2026-06-29 15:39:45,764 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_user_location
+2026-06-29 15:39:45,764 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-29 15:39:45,765 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_user_location调用成功
+2026-06-29 15:39:45,798 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 15:39:45,799 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 合肥
+2026-06-29 15:39:50,579 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_weather
+2026-06-29 15:39:50,580 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'city': '合肥'}
+2026-06-29 15:39:53,621 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_weather调用成功
+2026-06-29 15:40:46,101 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-29 15:40:46,101 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | {"query": "合肥当前的天气，返回包括温度、湿度、AQI等信息", "follow_up_questions": null, "answer": null, "images": [], "results": [{"url": "https://cj.sina.com.cn/articles/view/7857201856/1d45362c001905zb3y?froms=ggmp", "title": "温度/降水量/AQI/湿度/风速风向/气压/能见度/辐射逐小时历史天气数据", "content": "安徽合肥历史天气近30天统计：平均气温18℃，最高温32.2℃，最低温5.7℃；平均湿度80.0%，有降水天数12天；平均AQI 56（良），整体空气质量良好。", "score": 0.7811474, "raw_content": null}, {"url": "https://www.iqair.com/tw/air-quality/china/anhui/hefei", "title": "合肥空氣品質指數（AQI）和中國大陸 空氣污染| IQAir | IQAir 台灣", "content": "| 現在 84 天氣圖標 22° IQAir AirVisual 空氣質量地圖 風旋轉 331 度 3 km/h 濕度圖示 72% | 07:00 86 天氣圖標 24° IQAir AirVisual 空氣質量地圖 風旋轉 19 度 2 km/h 濕度圖示 64% | 08:00 89 天氣圖標 25° IQAir AirVisual 空氣質量地圖 風旋轉 6 度 4 km/h 濕度圖示 58% | 09:00 91 天氣圖標 27° IQAir AirVisual 空氣質量地圖 風旋轉 41 度 2 km/h 濕度圖示 54% | 10:00 91 天氣圖標 28° IQAir AirVisual 空氣質量地圖 風旋轉 106 度 3 km/h 濕度圖示 51% | 11:00 90 天氣圖標 30° IQAir AirVisual 空氣質量地圖 風旋轉 265 度 2 km/h 濕度圖示 49% | 12:00 94 天氣圖標 31° IQAir AirVisual 空氣質量地圖 風旋轉 331 度 3 km/h 濕度圖示 48% | 13:00 97 天氣圖標 31° IQAir AirVisual 空氣質量地圖 風旋轉 334 度 6 km/h 濕度圖示 47% | 14:00 102 天氣圖標 31° IQAir AirVisual 空氣質量地圖 風旋轉 332 度 7 km/h 濕度圖示 46% | 15:00 107 天氣圖標 32° IQAir AirVisual 空氣質量地圖 風旋轉 329 度 6 km/h 濕度圖示 42% | 16:00 113 天氣圖標 30° IQAir AirVisual 空氣質量地圖 風旋轉 344 度 12 km/h 濕度圖示 46% | 17:00 120 天氣圖標 29° IQAir AirVisual 空氣質量地圖 風旋轉 5 度 12 km/h 濕度圖示 62% | 18:00 123 天氣圖標 28° IQAir AirVisual 空氣質量地圖 風旋轉 47 度 8 km/h 濕度圖示 64% | 19:00 124 天氣圖標 28° IQAir AirVisual 空氣質量地圖 風旋轉 85 度 8 km/h 濕度圖示 63% | 20:00 125 天氣圖標 27° IQAir AirVisual 空氣質量地圖 風旋轉 67 度 9 km/h 濕度圖示 63% | 21:00 119 天氣圖標 26° IQAir AirVisual 空氣質量地圖 風旋轉 49 度 11 km/h 濕度圖示 68% | 22:00 113 天氣圖標 25° IQAir AirVisual 空氣質量地圖 風旋轉 62 度 13 km/h 濕度圖示 72% | 23:00 108 天氣圖標 25° IQAir AirVisual 空氣質量地圖 風旋轉 73 度 12 km/h 濕度圖示 69% 週六 | 00:00 109 天氣圖標 25° IQAir AirVisual 空氣質量地圖 風旋轉 63 度 13 km/h 濕度圖示 63% | 01:00 110 天氣圖標 24° IQAir AirVisual 空氣質量地圖 風旋轉 70 度 11 km/h 濕度圖示 62% | 02:00 112 天氣圖標 23° IQAir AirVisual 空氣質量地圖 風旋轉 68 度 10 km/h 濕度圖示 65% | 03:00 117 天氣圖標", "score": 0.7781275, "raw_content": null}, {"url": "https://aqicn.org/city/hefei/cn", "title": "合肥空气污染：实时PM2.5空气质量指数（AQI）", "content": "measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | PM10 AQI | 27 | 合肥 PM10 (可吸入颗粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | O3 AQI | 69 | 合肥 O3 (臭氧)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | NO2 AQI | 3 | 合肥 NO2 (二氧化氮)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | 温度。 | 32 | 合肥  t (温度。)  measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS). | 露点 | - | 合肥  d (露点)  measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS). | 当前的 | | 过去 2 天 | 分钟 | 最大限度 || PM2.5 AQI | 30 | 合肥 PM25 (小颗粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 O3 (臭氧)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 PM10 (可吸入颗粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 NO2 (二氧化氮)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS).\").", "score": 0.73138535, "raw_content": null}, {"url": "https://aqicn.org/city/hefei/hk", "title": "合肥空氣污染：實時PM2.5空氣質量指數（AQI）", "content": "measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | PM10 AQI | 22 | 合肥 PM10 (可吸入顆粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | O3 AQI | 26 | 合肥 O3 (臭氧)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | NO2 AQI | 6 | 合肥 NO2 (二氧化氮)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). | 溫度 | 19 | 合肥  t (溫度)  measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS). | 露點 | - | 合肥  d (露點)  measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS). | 目前的 | | 過去 2 天 | 分分鐘 | 最大限度 || PM2.5 AQI | 87 | 合肥 PM25 (小顆粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 PM10 (可吸入顆粒物)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 O3 (臭氧)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). 合肥 NO2 (二氧化氮)  measured by Anhui Environmental Protection Agency (安徽省生态环境厅). measured by :\r • Weather Underground\r • Citizen Weather Observer Program (CWOP/APRS).\").", "score": 0.6937432, "raw_content": null}, {"url": "https://www.ventusky.com/zh/hefei", "title": "天气 - 合肥市 - 14天预报：气温、风和雷达 | Ventusky", "content": "| 大部分多云 23 °C 0 mm 0 %  西北  1 km/h | 多云 22 °C 0 mm 10 %  西北  1 km/h | 多云 25 °C 0 mm 0 %  西北  1 km/h | 大部分多云 28 °C 0 mm 10 %  北  5 km/h | 大部分多云 29 °C 0 mm 0 %  北  5 km/h | 灰蒙蒙 27 °C 0 mm 0 %  东北  8 km/h | 大部分多云 26 °C 0 mm 10 %  东北  1 km/h | 大部分多云 24 °C 0 mm 10 %  东  3 km/h |.", "score": 0.6211049, "raw_content": null}], "response_time": 0.87, "request_id": "18770318-7316-4c69-adf9-f038f4d52cdd"}
+2026-06-29 15:41:00,373 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：rag_summarize
+2026-06-29 15:41:00,373 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'query': '天气对情绪的影响'}
+2026-06-29 15:42:18,689 - agent - INFO - middleware.py:21 - [monitor_tool]工具rag_summarize调用成功
+2026-06-29 15:42:26,374 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-29 15:42:26,374 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 外部环境（含天气变化）确实会潜移默化地影响我们的情绪节律，这种身心联动是普遍且正常的生理心理反应。结合心理学情绪干预视角，可尝试以下可落地的调节策略：
+
+认知接纳与边界建立：允许自己在特定天气或气压变化时出现短暂的低落、倦怠或烦躁，不将这种环境诱发的情绪等同于个人状态的全部，避免自我批判。需明确区分主观感受与客观事实，天气只是外部变量，并不定义你的内在价值或未来走向。当感到被环境压制时，提醒自己这只是一时的身心反馈，而非不可逆转的现实。
+
+正念锚定与注意力转移：当外部环境引发心理紧绷感时，可通过深呼吸练习将注意力从天气拉回当下身体，专注感受呼吸的起伏与肌肉的放松；或尝试冥想，将觉察力集中在自身在场的具体场景与感官细节上。同时，主动投入个人兴趣（如阅读、绘画、室内运动或听音乐），通过健康的注意力转移打破环境带来的负面沉浸。
+
+行为激活与微目标管理：环境不可控，但生活节律可以。保持规律作息、均衡饮食与适度运动以稳固生理基础；每天为自己设定一个微小可行的目标（如学习一道新菜谱、完成一次瑜伽拉伸），通过持续完成小任务积累自我效能感，逐步提升对情绪的掌控力。
+
+情绪外化与支持系统构建：将当下的情绪波动及触发原因记录在纸上，通过书写梳理内在需求，避免将负面感受压抑在心底。若感到孤立或沉重，可选择与信任的亲友进行温和表达，从简单话题逐步深入真实感受，借助社会联结获得情感支持。
+
+专业评估边界：若情绪低落或焦虑状态受环境因素影响持续数周至数月，且已明显干扰日常饮食、睡眠、工作与社交功能，建议及时寻求心理咨询师或精神科医生的专业指导。情绪调节是一项可习得的技能，系统的专业陪伴能帮助你建立更稳固的心理韧性。
+2026-06-29 15:43:43,700 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 15:43:43,701 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 这样的天气下如何更好保持冷静
+2026-06-29 15:43:50,498 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_user_location
+2026-06-29 15:43:50,498 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-29 15:43:50,498 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_user_location调用成功
+2026-06-29 15:43:50,532 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 15:43:50,533 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 成都
+2026-06-29 15:43:53,219 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_weather
+2026-06-29 15:43:53,219 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'city': '成都'}
+2026-06-29 15:43:56,472 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_weather调用成功
+2026-06-29 15:43:59,244 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-29 15:43:59,244 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | {'error': SSLError(MaxRetryError("HTTPSConnectionPool(host='api.tavily.com', port=443): Max retries exceeded with url: /search (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"))}
+2026-06-29 15:44:02,971 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：rag_summarize
+2026-06-29 15:44:02,971 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'query': '天气对情绪的影响及调节方法'}
+2026-06-29 15:45:03,971 - agent - INFO - middleware.py:21 - [monitor_tool]工具rag_summarize调用成功
+2026-06-29 15:45:09,724 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-29 15:45:09,724 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 天气等外部环境的变化确实容易对我们的情绪产生潜移默化的影响，这在心理学视角下属于常见的环境与心境交互反应。当外界环境引发情绪波动或低落时，可尝试以下基于心理干预实践的调节策略：首先，允许并接纳当下的情绪体验，明白情绪起伏是正常的人类反应，无需因“难以控制”而产生自我否定或过度压抑。其次，通过生理与行为层面的干预稳定内在节律，例如进行深呼吸、冥想或瑜伽练习以缓解身心紧张；同时结合健康的饮食、充足的睡眠与规律运动，提升情绪的基础耐受力。在认知层面，当情绪相对平稳时，可以尝试记录情绪变化并理性区分“主观感受”与“客观事实”，避免将环境带来的暂时性低落放大为持久性的心理负担；也可以每天为自己设定一个微小且易实现的目标，通过积累微小的掌控感逐步重建情绪自信。此外，温和地转移注意力是有效的缓冲方式，可通过阅读、绘画、听音乐或观影等个人兴趣活动，将焦点从外部环境拉回内在体验。情绪调节并非孤军奋战，向信任的亲友倾诉内心感受，或通过书写梳理情绪，能有效缓解孤独感与心理压力。需要留意的是，若环境因素引发的情绪低落持续数周以上，且已明显干扰日常生活与社会功能，请及时寻求专业心理咨询支持。外部环境虽会暂时影响心境，但你内在的调节能力可以通过持续练习逐步增强，请给予自己足够的耐心与包容。
+2026-06-29 15:54:16,386 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 15:54:16,386 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 感觉很焦虑，能不能帮我吧
+2026-06-29 15:54:23,818 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：rag_summarize
+2026-06-29 15:54:23,818 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'query': '焦虑缓解'}
+2026-06-29 15:55:14,819 - agent - INFO - middleware.py:21 - [monitor_tool]工具rag_summarize调用成功
+2026-06-29 15:55:19,731 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 15:55:19,732 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 针对焦虑情绪的缓解，可从认知调整、即时安抚、行为激活与生活节律四个维度进行干预。在认知层面，需接纳情绪的自然起伏，认识到焦虑是面对压力或未知时的常见心理反应，而非个人能力的否定。尝试用“允许自己慢慢来”“关注当下可控部分”等正向自我对话替代过度担忧，降低对完美的苛求，将挫折重新定义为探索过程中的正常反馈。在即时调节方面，当感到紧绷或思维混乱时，可暂停当前事务，通过深呼吸练习（吸气默数三秒，缓慢呼气）配合渐进式肌肉放松来平复神经系统；轻微活动身体或转换物理位置也能有效释放躯体的紧张感。行为激活上，建议将复杂压力拆解为具体可行的小步骤，通过完成微小目标逐步积累掌控感与自信心；同时，利用书写记录或向信任的人倾诉，为内在压力建立安全的情感出口，并尝试将注意力转移到感兴趣的活动中以切断反复思虑的循环。此外，稳定的生理节律是情绪调节的基础，建议规律作息，睡前减少刺激性饮食与电子屏幕蓝光暴露，通过冥想、瑜伽或适度运动维持身心平衡。若焦虑状态持续影响日常功能，主动寻求专业心理支持是积极且有效的自我关怀方式。
+2026-06-29 16:19:37,541 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 16:19:37,541 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 找不到工作怎么办呢
+2026-06-29 16:19:44,399 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：rag_summarize
+2026-06-29 16:19:44,399 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'query': '求职焦虑 压力管理 心理调适'}
+2026-06-29 16:20:46,031 - agent - INFO - middleware.py:21 - [monitor_tool]工具rag_summarize调用成功
+2026-06-29 16:20:53,114 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 16:20:53,116 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 面对求职焦虑与压力，可从认知重构、情绪调节与支持系统三个维度进行系统调适。
+
+在认知层面，求职焦虑常源于对不确定未来的过度担忧与阶段性受挫引发的自我怀疑。建议采用任务拆解策略，将宏大的职业规划或密集的海投目标划分为具体、可执行的小步骤，逐块处理以降低失控感；同时，建立客观的自我对话模式，避免因暂时未获offer而陷入能力否定。尝试转换视角，将求职过程中的波折视为信息收集与经验积累的必要环节，接纳焦虑作为高压情境下的正常心理反应，不急于求成，保持对自身成长节奏的耐心。
+
+在情绪调节层面，当紧张、烦躁或失眠加剧时，优先通过生理锚定技术降低神经唤醒水平。在情绪起伏初期，有意识地进行深呼吸练习，配合肩颈与肌肉的放松，帮助身体从应激状态回归平静。日常可规律安排低负荷的舒缓活动，如户外散步、接触自然光照、聆听轻音乐或跟随视频进行基础冥想与瑜伽练习。这些方法旨在为心理“腾出缓冲空间”，无需追求完美掌握，重在持续练习以积累内在的稳定感。
+
+在行为与支持层面，求职期的孤立感会显著放大压力负荷，主动打破情绪孤岛至关重要。保持与家人、可信赖的朋友或同行者的定期联结，坦诚分享当下的困境与感受，能有效稀释心理重负；同时，建议每日记录一至两项个人优势或微小进展，通过积累具体的正向反馈逐步重建职业自信。若自我调适长期效果有限，及时预约学校心理中心或专业咨询机构进行结构化疏导是科学且高效的选择。请相信，求职阶段的迷茫是职业定位过程中的常见现象，允许自己逐步探索，持续行动与自我关怀并重，内在的掌控感会随之重建。
+2026-06-29 16:25:47,943 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 16:25:47,944 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 天气会影响我的心情，请你看一下我当前位置的天气是如何影响我的
+2026-06-29 16:25:53,017 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_user_location
+2026-06-29 16:25:53,018 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-29 16:25:53,018 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_user_location调用成功
+2026-06-29 16:25:53,052 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 16:25:53,053 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 成都
+2026-06-29 16:25:55,673 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_weather
+2026-06-29 16:25:55,673 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'city': '成都'}
+2026-06-29 16:25:58,900 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_weather调用成功
+2026-06-29 16:26:01,701 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-29 16:26:01,702 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | {'error': SSLError(MaxRetryError("HTTPSConnectionPool(host='api.tavily.com', port=443): Max retries exceeded with url: /search (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"))}
+2026-06-29 17:06:46,952 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 17:06:46,952 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你好啊
+2026-06-29 17:09:41,367 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 17:09:41,368 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 我叫小虎
+2026-06-29 17:10:00,854 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-29 17:10:00,854 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你知道我的名字吗
+2026-06-29 17:10:49,300 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-29 17:10:49,300 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你知道我的名字吗
+2026-06-29 17:30:28,323 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有1条消息。
+2026-06-29 17:30:28,324 - agent - DEBUG - middleware.py:37 - [logger_before_model]HumanMessage | 你认识我吗
+2026-06-29 17:30:39,183 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_user_id
+2026-06-29 17:30:39,183 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-29 17:30:39,184 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_user_id调用成功
+2026-06-29 17:30:39,239 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有3条消息。
+2026-06-29 17:30:39,240 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 1008
+2026-06-29 17:30:46,280 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：get_current_month
+2026-06-29 17:30:46,280 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{}
+2026-06-29 17:30:46,281 - agent - INFO - middleware.py:21 - [monitor_tool]工具get_current_month调用成功
+2026-06-29 17:30:46,370 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有5条消息。
+2026-06-29 17:30:46,370 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 2025-11
+2026-06-29 17:30:49,661 - agent - INFO - middleware.py:16 - [monitor_tool]执行工具：fetch_external_data
+2026-06-29 17:30:49,662 - agent - INFO - middleware.py:17 - [monitor_tool]传入参数：{'month': '2025-11', 'user_id': '1008'}
+2026-06-29 17:30:49,664 - agent - WARNING - agent_tools.py:154 - [fetch_external_data] 未找到 1008 在 2025-11 的记录
+2026-06-29 17:30:49,664 - agent - INFO - middleware.py:21 - [monitor_tool]工具fetch_external_data调用成功
+2026-06-29 17:30:49,666 - agent - INFO - middleware.py:36 - [log_before_model]即将调用模型，带有7条消息。
+2026-06-29 17:30:49,667 - agent - DEBUG - middleware.py:37 - [logger_before_model]ToolMessage | 
