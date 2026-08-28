@@ -1,6 +1,6 @@
 # 🧠 心理健康情感支持助手
 
-基于 **LangChain ReAct Agent** + **RAG** 构建的多工具心理健康对话系统，支持知识检索、情绪记录、月度情绪报告生成。
+基于 **DeepAgents Harness Agent** + **RAG** 构建的多工具心理健康对话系统，支持知识检索、情绪记录、月度情绪报告生成，并具备任务规划、子 Agent 委派、人在回路、自我进化等通用智能体能力。
 
 > ⚠️ 本项目仅供技术学习与情感陪伴参考，**不构成专业心理诊断或治疗建议**。如有严重心理困扰，请及时寻求专业心理咨询师或精神科医生的帮助。
 
@@ -8,11 +8,14 @@
 
 ## ✨ 项目特性
 
-- **多工具 ReAct Agent**：基于 LangChain 构建，集成知识检索、天气查询、情绪记录、月度报告生成等 8 个工具，通过精确的工具描述与"哨兵工具"机制约束 Agent 的调用顺序
+- **Harness Agent 运行时**：基于 `create_deep_agent` 构建，统一集成任务规划（TodoList）、子 Agent 委派（SubAgents）、人在回路（HumanInTheLoop）、Skills 技能、Memory 记忆、上下文压缩（Summarization）六大能力模块
+- **多代理委派**：通过 `task` 工具创建情绪报告分析师、心理学知识研究员、危机信号筛查员三个专职子 Agent，各自独立上下文、仅返回精简结论，支持并行委派
+- **任务规划可视化**：模型在多步任务中自主制定并更新任务清单（write_todos），计划进度通过 SSE 事件流实时推送到前端展示
+- **人在回路（HITL）**：对"保存情绪记录"等有副作用的写操作配置中断审批，实现"模型主动识别 → 暂停 → 用户批准/拒绝 → 断点恢复"闭环
+- **自我进化 Skills**：可复用工作流打包为 Skill（SKILL.md），渐进式披露加载；Agent 运行期可读可写技能文件，自主沉淀新能力
 - **垂直领域 RAG 知识库**：使用 ACL 2025 发布的 PsyDial-D2 心理咨询对话数据集与中文心理学书籍文本构建知识库，基于 ChromaDB 实现语义检索
-- **自定义 Middleware 层**：通过 `wrap_tool_call`、`dynamic_prompt` 等中间件接口实现工具调用全链路监控与 System Prompt 动态切换，业务逻辑与 Agent 主体解耦
-- **情绪数据持久化**：支持 Agent 主动记录情绪，也支持基于大模型对完整对话做结构化摘要（JSON 提取）后自动归档
-- **流式对话 UI**：基于 Streamlit 实现，支持多用户切换、历史对话管理、一键保存情绪记录
+- **情绪数据持久化**：支持 Agent 主动记录情绪（触发人工审批），情绪档案按月分组展示
+- **流式对话 UI**：基于 Streamlit 实现，进入先选用户身份，侧边栏展示该用户的历史情绪记录
 
 ---
 
@@ -21,28 +24,39 @@
 ```mermaid
 flowchart TB
     U[用户] --> APP[Streamlit App]
-    APP --> AGENT[ReAct Agent]
+    APP -->|SSE 流式| API[FastAPI 后端]
 
-    AGENT --> MW[Middleware 层]
-    MW -->|工具调用日志| LOG[日志系统]
-    MW -->|动态 Prompt 切换| PROMPT[Prompt 管理]
+    API --> AGENT[DeepAgent<br/>create_deep_agent]
+
+    AGENT --> TODO[TodoListMiddleware<br/>任务规划]
+    AGENT --> MW[中间件层]
+    MW --> MON[monitor_tool<br/>工具监控与日志]
+    MW --> LOG[log_before_model<br/>模型调用日志]
+
+    AGENT -->|task 委派| SA1[report_analyst<br/>情绪报告分析师]
+    AGENT -->|task 委派| SA2[knowledge_researcher<br/>心理学知识研究员]
+    AGENT -->|task 委派| SA3[crisis_screener<br/>危机信号筛查员]
+
+    AGENT --> SUM[SummarizationMiddleware<br/>上下文压缩]
+    AGENT --> MEM[MemoryMiddleware<br/>用户偏好记忆]
+    AGENT --> SK[SkillsMiddleware<br/>渐进式技能]
+    AGENT --> HITL[HumanInTheLoop<br/>中断审批]
 
     AGENT --> T1[rag_summarize<br/>知识检索]
-    AGENT --> T2[get_weather<br/>天气查询]
-    AGENT --> T3[get_user_id / get_user_location<br/>用户信息]
+    AGENT --> T2[get_weather / get_user_location<br/>天气与位置]
+    AGENT --> T3[get_user_id<br/>用户信息]
     AGENT --> T4[log_mood<br/>情绪记录]
     AGENT --> T5[fetch_external_data<br/>历史记录查询]
-    AGENT --> T6[fill_context_for_report<br/>报告模式触发]
 
     T1 --> VS[(ChromaDB<br/>向量知识库)]
     T4 --> CSV[(情绪档案<br/>CSV)]
     T5 --> CSV
 
-    APP -->|侧边栏：保存对话| SUM[LLM 对话摘要]
-    SUM -->|结构化 JSON 提取| CSV
+    AGENT --> FS[(FilesystemBackend<br/>虚拟文件系统)]
+    FS --> WS[/workspace<br/>报告/技能/记忆/历史/]
 
-    VS -.数据来源.- DS1[PsyDial-D2<br/>心理咨询对话数据集]
-    VS -.数据来源.- DS2[Chinese-Psychology-Books<br/>心理学书籍文本]
+    SA1 --> CSV
+    SA1 --> VS
 ```
 
 ---
@@ -50,45 +64,37 @@ flowchart TB
 ## 📁 项目结构
 
 ```
-rag_agent/
-├── app.py                       # Streamlit 入口，对话界面 + 侧边栏功能
-├── main.py                      # 命令行入口
-├── build_knowledge_base.py      # 知识库构建脚本（下载数据集 → 写入 ChromaDB）
+Mental-Health-Agent/
+├── app.py                       # Streamlit 前端：选用户 → 聊天 → 历史记录/审批
+├── app/                         # FastAPI 后端
+│   ├── main.py                  # FastAPI 入口
+│   ├── routers/chat.py          # 对话 / 流式 / 审批恢复 / 历史记录 端点
+│   ├── services/chat_service.py # SSE 事件流编排 + 运行时上下文注入
+│   └── schemas/                 # 请求 / 响应 Pydantic 模型
 │
 ├── agent/
-│   ├── react_agent.py           # ReAct Agent 主体，组装工具与中间件
+│   ├── deep_agent.py            # Harness Agent 主体（create_deep_agent）
+│   ├── subagents.py             # 三个专职子 Agent 定义
+│   ├── context.py               # 运行时上下文 schema（用户身份注入）
+│   ├── react_agent.py           # 旧版 ReAct Agent（保留参考）
 │   └── tools/
-│       ├── agent_tools.py       # 业务工具集（RAG检索、情绪记录、报告生成等）
-│       └── middleware.py        # 自定义中间件（监控、Prompt动态切换）
+│       ├── agent_tools.py       # 业务工具集（RAG检索、情绪记录等）
+│       └── middleware.py        # 自定义中间件（工具监控、日志）
 │
 ├── rag/
 │   ├── rag_service.py           # RAG 检索 + 摘要链
 │   └── vector_store.py          # ChromaDB 向量库读写管理
 │
-├── model/
-│   └── factory.py               # LLM / Embedding 模型初始化
-│
-├── prompts/
-│   ├── main_prompt.txt          # 主对话角色 Prompt
-│   ├── rag_summarize.txt        # RAG 检索摘要 Prompt
-│   └── report_prompt.txt        # 月度情绪报告生成 Prompt
-│
-├── config/
-│   ├── agent.yml                # Agent 相关配置（数据路径等）
-│   ├── chroma.yml                # 向量库路径 / 分块参数
-│   ├── rag.yml                   # 模型名称配置
-│   └── prompts.yml               # Prompt 文件路径映射
-│
-├── utils/
-│   ├── config_handler.py        # 配置加载
-│   ├── logger_handler.py        # 日志工具
-│   ├── file_handler.py          # 文件读取工具
-│   └── path_tool.py             # 路径处理工具
-│
+├── model/factory.py             # LLM / Embedding 模型初始化
+├── prompts/                     # 系统 / 报告 Prompt
+├── config/                      # yml 配置（模型、向量库、Prompt 路径）
+├── utils/                       # 配置加载、日志、路径工具
 └── data/
-    ├── knowledge_base/           # RAG 原始知识文本（构建脚本生成）
-    └── external/
-        └── records.csv           # 用户情绪历史记录档案
+    ├── external/records.csv     # 用户情绪历史记录档案
+    └── agent_files/             # 虚拟文件系统工作区
+        ├── skills/              # 可复用 Skill（SKILL.md）
+        ├── memory/              # 持久化记忆（AGENTS.md）
+        └── conversation_history/ # 摘要压缩落盘的对话历史
 ```
 
 ---
@@ -97,11 +103,12 @@ rag_agent/
 
 | 类别 | 技术 |
 |---|---|
-| Agent 框架 | LangChain (ReAct Agent) |
+| Agent 框架 | DeepAgents · LangChain · LangGraph |
+| 后端 | FastAPI（SSE 流式接口）|
 | 向量数据库 | ChromaDB |
-| LLM / Embedding | Qwen API（可替换为其他兼容 OpenAI 接口的模型）|
+| LLM / Embedding | DeepSeek / Qwen API（可替换为兼容 OpenAI 接口的模型）|
 | 前端界面 | Streamlit |
-| 数据处理 | pandas, datasets (HuggingFace) |
+| 数据持久化 | CSV（情绪档案）· SQLite Checkpoint（对话状态）|
 
 ---
 
@@ -122,7 +129,9 @@ pip install -r requirements.txt
 在项目根目录创建 `.env` 文件，填入模型 API Key：
 
 ```bash
+DEEPSEEK_API_KEY=your_api_key_here
 DASHSCOPE_API_KEY=your_api_key_here
+TAVILY_API_KEY=your_api_key_here
 ```
 
 ### 3. 构建知识库
@@ -140,33 +149,45 @@ python build_knowledge_base.py --load
 
 ### 4. 启动应用
 
+先启动 FastAPI 后端（默认端口 8000）：
+
+```bash
+cd app
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+再启动 Streamlit 前端（默认端口 8501）：
+
 ```bash
 streamlit run app.py
 ```
 
-浏览器访问 `http://localhost:8501` 即可开始对话。
+浏览器访问 `http://localhost:8501`，选择用户身份后开始对话。
 
 ---
 
 ## 💡 核心设计说明
 
-### 工具调用顺序约束
+### 1. Harness Agent 运行时
 
-ReAct Agent 本身不保证多步骤任务的执行顺序。本项目通过两层机制解决这个问题：
+系统以 `create_deep_agent` 为底座，把散落的 Agent 能力收敛为一个统一的运行时框架：
 
-1. **精确的工具描述**：每个工具的 `description` 明确说明触发条件、入参格式、出参含义，引导模型按预期顺序调用
-2. **哨兵工具 + Middleware 联动**：生成月度报告前，Agent 必须先调用 `fill_context_for_report`，该调用被 Middleware 捕获后会向 runtime context 写入状态标志；下一次模型调用时，`dynamic_prompt` 中间件根据该标志切换为报告专用 Prompt，从而保证"先查询数据，再生成报告"的执行顺序
+- **任务规划**（TodoListMiddleware）：模型在多步任务上用 `write_todos` 工具制定并更新任务清单，维护 pending / in_progress / completed 状态
+- **多代理委派**（SubAgents）：报告生成、知识检索、危机筛查等重任务委派给专职子 Agent，每个子 Agent 独立上下文、只回传精简结论，避免主上下文污染
+- **人在回路**（HumanInTheLoop）：对有副作用的写操作执行前暂停，等用户审批后再续跑
+- **上下文工程**（SummarizationMiddleware + context_schema）：token 达阈值时自动摘要压缩旧消息；运行时注入用户身份，规避工具随机返回用户 ID 的上下文断裂
 
-### 数据持久化的两条路径
+### 2. AI 主动记录 + 人工审批
 
-用户的情绪数据可以通过两种方式写入档案，两者共享同一套底层写入逻辑：
+用户倾诉情绪后，Agent 会**主动**调用 `log_mood` 工具触发人工介入——前端弹出"是否保存这条情绪记录"的确认框。用户点批准才写入档案，点拒绝则不保存。这套机制让"记录"由 AI 判断、由用户把关，兼顾自动化与安全边界。
 
-- **Agent 主动记录**：用户在对话中明确表达记录意愿时，Agent 调用 `log_mood` 工具，自行从上下文中提取情绪评分、标签等信息
-- **手动批量总结**：用户点击侧边栏"保存对话"按钮，触发 LLM 对完整对话历史做结构化摘要，以 JSON 格式提取情绪信息后写入
+### 3. 自我进化 Skills
 
-### RAG 知识库构建
+技能以 `数据/skills/<技能名>/SKILL.md` 为单元，frontmatter 定义 `name` / `description`，正文定义"何时使用 + 工作流 + 输出规范"。采用渐进式披露加载：系统提示先列技能名称与描述，模型按需 `read_file` 读取完整指令。Agent 运行期可用 `write_file` 沉淀新技能，实现能力随使用积累。
 
-数据集经过清洗后转换为适合检索的文本块：心理咨询对话按「来访者-咨询师」问答对切分，保证每个检索单元语义完整；心理学书籍文本按段落切分作为背景知识补充。两类数据共同构成知识库的"专业知识"与"咨询场景"两个维度。
+### 4. 虚拟文件系统
+
+基于 FilesystemBackend，将文件读写锚定到 `data/agent_files/` 工作区（含 `/skills`、`/memory`、`/conversation_history` 等目录），强制拦截路径穿越，确保 Agent 只能在工作区内读写，不接触项目源代码与 `.env` 等敏感文件。
 
 ---
 
